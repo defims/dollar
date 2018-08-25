@@ -4,6 +4,48 @@
 <title>dollar</title>
 </head>
 <body>
-<h1>Make DOM access and manipulate easier like sass</h1>
+<h1>Make xDOM access and manipulate like scss</h1>
+<h2>with dollar symbol '$'</h2>
+<h3>scss is elegant for us to style a document like this!</h3>
+<pre><code>
+.selector h3:before { content: "hi" }
+#container {
+  &:before { content: "hi" }
+  .child {
+    background: gray;
+  }
+}
+</code></pre>
+<h3>What if we can access and manipulate DOM like this?</h3>
+<pre><code>
+$`.selector h3`.textContent = "hi";
+$`#container`($ => {
+  $.textContent = "hi";
+  $`.child`.setAttribute('data-background', 'gray');
+})
+</code></pre>
+<h3>What if we can access and manipulate VDOM like this?</h3>
+<pre><code>//React
+$`.selector h3`.props.children = "hi";
+$`#container`($ => {
+  $.props.children = "hi";
+  $`.child`.props['data-background'] = 'gray';
+})
+</code></pre>
+<h3>Above is recommended ES6 style, ES5 style is available too.</h3>
+<pre><code>
+$(".selector h3").textContent = "hi";
+$("#container", function($) {
+  $.textContent = "hi";
+  $(".child").setAttribute('data-background', 'gray');
+})
+</code></pre>
+<h3>Why</h3>
+<ul>
+  <li>use a common way to access and manipulate xDOM</li>
+  <li>parent node can be cached</li>
+  <li>serverside rendering can be more flexible</li>
+</ul>
+<h3>code will be update soon.</h3>
 </body>
 </html>
