@@ -1,2 +1,2 @@
 # dollar
-make DOM access and manipulate easier like sass
+make xDOM access and manipulate easier like scss
